@@ -28,6 +28,19 @@ class DiscoCollectionRepository {
     });
   }
 
+  async findDiscoCollection({ discoId, collectionId }) {
+    return new Promise(function(resolve, reject) {
+      const sql = `SELECT * From discospd.collectiondisco WHERE discoId = '${discoId}' and collectionId = '${collectionId}'`;
+      connection.query(sql, function(err, results, fields) {
+        if (err) {
+          console.log(err.message);
+        }
+        const result = JSON.stringify(results);
+        resolve(JSON.parse(result));
+      });
+    });
+  }
+
   async delete(discoId, collectionId) {
     return new Promise(function(resolve, reject) {
       const sql = `DELETE FROM discospd.collectiondisco WHERE discoId = '${discoId}' and collectionId = '${collectionId}'`;

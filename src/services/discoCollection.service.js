@@ -9,6 +9,10 @@ class DiscoCollectionService {
     return DiscoCollectionRepository.find(id);
   }
 
+  async findDiscoCollection(discoCollection) {
+    return DiscoCollectionRepository.findDiscoCollection(discoCollection);
+  }
+
   async delete(discoId, collectionId) {
     return DiscoCollectionRepository.delete(discoId, collectionId);
   }

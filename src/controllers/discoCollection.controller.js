@@ -70,6 +70,13 @@ class DiscoController {
 
       await req.validateParams(data, requiredParams);
 
+      const discoCollectionExist = await DiscoCollectionService.findDiscoCollection(
+        data
+      );
+
+      if (discoCollectionExist.length > 0)
+        throw createError(400, "disco is already in the collection");
+
       const discoCollection = await DiscoCollectionService.create(data);
 
       if (!discoCollection.affectedRows)
