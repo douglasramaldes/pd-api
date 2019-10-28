@@ -69,14 +69,14 @@ async function createTableMysql() {
         if (err) {
           console.log(err.message);
         }
-        console.log("Table discos created");
+        console.log("Table Disco created");
       });
 
       newConnection.query(createCollections, function(err, results, fields) {
         if (err) {
           console.log(err.message);
         }
-        console.log("Table discos created");
+        console.log("Table Collection created");
       });
 
       newConnection.query(createColectionDiscos, function(
@@ -87,7 +87,7 @@ async function createTableMysql() {
         if (err) {
           console.log(err.message);
         }
-        console.log("Table discos created");
+        console.log("Table CollectioDiscos created");
       });
 
       newConnection.end(function(err) {
